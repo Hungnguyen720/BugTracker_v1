@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAJzZzaFb0AE2PRgLOxNFhPAAAAAACAAAAAAAQZgAAAAEAACAAAAA4oStpU4p/Fmx5ko0VQHWZzy2ftqITlPJvUdlFZ3PzcwAAAAAOgAAAAAIAACAAAAAL5b/mQuXF1R9OFTnLVye6m+Kg75pf8cHNESb63TkCLoAAAABY7SmG2sz0N6GOA9xdQkqAKJna10abQw8nA2GuGKgd5KUTLO7v0LcAkVu1y9CvfMnXG1YuFq+VyHaKpBBAid6fuwiumlEIvpxAjN5bs08dV82OQCBVDY+au/hUCf34T9+iwXJYLDJQ+L3VBonGqZzqYdufEiIuMXsVihLY6+6gekAAAADEDyhoYN82QEIwkvQpU0BJaN4jZryWGDUCdVzCsVqcDjfvxGU6CqWK4FrziTBXZRl1ZMnYeNTVzwAZQOQ+caRV</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=testserverhung.database.windows.net%3bInitial Catalog=coreDB%3bUser ID=hungnguyen%3bPassword=Killerfantasy12%3bConnect Timeout=30%3bEncrypt=True%3bTrustServerCertificate=False%3bApplicationIntent=ReadWrite%3bMultiSubnetFailover=False%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
