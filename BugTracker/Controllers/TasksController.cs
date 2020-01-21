@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using BugTracker.Data;
 using BugTracker.Models;
 using Task = BugTracker.Models.Task;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BugTracker.Controllers
 {
@@ -20,6 +21,7 @@ namespace BugTracker.Controllers
             _context = context;
         }
 
+        [Authorize]
         // GET: Tasks
         public async Task<IActionResult> Index()
         {
