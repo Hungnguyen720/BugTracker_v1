@@ -7,7 +7,7 @@
 
 
 <style>
-    main-content {
+    .main-content {
     padding-left: 0px;
     }
 
@@ -24,7 +24,7 @@
     <thead>
         <tr>
             <th>
-                <a href="/ProjectDashboard"></a>
+                @Html.DisplayNameFor(model => model.ProjectId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ProjectName)
@@ -48,7 +48,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ProjectId)
+                <a href="/ProjectDashboard/@(item.ProjectId)">@Html.DisplayFor(modelItem => item.ProjectId)</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ProjectName)

@@ -315,3 +315,12 @@ C:\Code\BugTracker_v1\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\Shared\Comp
 C:\Code\BugTracker_v1\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_Dropdown.cshtml.g.cs
 C:\Code\BugTracker_v1\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_layout_no_sidebar.cshtml.g.cs
 C:\Code\BugTracker_v1\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\ProjectDashboard\Index.cshtml.g.cs
+C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\BugTracker.RazorComponent.input.cache
+C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\RazorDeclaration\Views\Shared\Component.razor.g.cs
+C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\RazorDeclaration\BugTracker.dll
+C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\Shared\Component.razor.g.cs
+C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\ProjectDashboard\Index.cshtml.g.cs
+C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\ProjectSettings\Dashboard.cshtml.g.cs
+C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\Shared\Components\Sidebar.cshtml.g.cs
+C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_Dropdown.cshtml.g.cs
+C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_layout_no_sidebar.cshtml.g.cs
