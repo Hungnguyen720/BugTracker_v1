@@ -1,67 +1,57 @@
-﻿@model IEnumerable<BugTracker.Models.ProjectSettingsModel>
+﻿@model IEnumerable<BugTracker.Models.ProjectDashboardViewModel>
 
 
 @{
     ViewData["Title"] = "Dashboard";
 }
 
-@foreach (var item in Model)
+@foreach (var item in Model.Bugs)
 {
 <h1>@(item.ProjectId)</h1>
 }
 
-
-
-<div id="canvas-holder" style="width:40%">
-    <canvas id="chart-area"></canvas>
-</div>
+@foreach (var item in Model.Tasks)
+{
+<h1>@(item.ProjectId)</h1>
+}
 
 <div class="row">
-    <div class="col-xl-8 mb-5 mb-xl-0">
-        <div class="card bg-gradient-default shadow">
+    <div class="col-xl-6 mb-5 mb-xl-0">
+        <div class="card bg-neutral shadow">
             <div class="card-header bg-transparent">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
-                        <h2 class="text-white mb-0">Sales value</h2>
+                        <h2 class="text-purple mb-0">Task Status</h2>
                     </div>
                 </div>
             </div>
             <div class="card-body">
-                <!-- Chart -->
-                <div class="chart">
-                    <!-- Chart wrapper -->
-                    <canvas id="chart-sales" class="chart-canvas"></canvas>
-                </div>
+                <canvas id="chart-area1"></canvas>
             </div>
         </div>
     </div>
-    <div class="col-xl-4">
-        <div class="card shadow">
+    <div class="col-xl-6 mb-5 mb-xl-0">
+        <div class="card shadow bg-neutral">
             <div class="card-header bg-transparent">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6>
-                        <h2 class="mb-0">Total orders</h2>
+                        <h2 class="text-purple mb-0">Bug Status</h2>
                     </div>
                 </div>
             </div>
             <div class="card-body">
-                <!-- Chart -->
-                <div class="chart">
-                    <canvas id="chart-orders" class="chart-canvas"></canvas>
-                </div>
+                <canvas id="chart-area2"></canvas>
             </div>
         </div>
     </div>
 </div>
 <div class="row mt-5">
-    <div class="col-xl-8 mb-5 mb-xl-0">
+    <div class="col-xl-12 mb-5 mb-xl-0">
         <div class="card shadow">
             <div class="card-header border-0">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h3 class="mb-0">Team Status </h3>
+                        <h3 class="text-purple mb-0">Team Status </h3>
                     </div>
                 </div>
             </div>
@@ -103,12 +93,14 @@
             </div>
         </div>
     </div>
-    <div class="col-xl-4">
+</div>
+<div class="row mt-5">
+    <div class="col-xl-6">
         <div class="card shadow">
             <div class="card-header border-0">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h3 class="mb-0">Overdue Work Items</h3>
+                        <h3 class="text-purple mb-0">Overdue Work Items</h3>
                     </div>
                 </div>
             </div>
@@ -183,7 +175,10 @@
     };
 
     window.onload = function () {
-        var ctx = document.getElementById('chart-area').getContext('2d');
+        var ctx = document.getElementById('chart-area1').getContext('2d');
+        window.myPie = new Chart(ctx, config);
+
+        var ctx = document.getElementById('chart-area2').getContext('2d');
         window.myPie = new Chart(ctx, config);
     };
-    </Script>
+</script>
