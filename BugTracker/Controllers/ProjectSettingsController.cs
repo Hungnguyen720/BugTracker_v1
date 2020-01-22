@@ -25,6 +25,11 @@ namespace BugTracker.Controllers
             return View(await _context.ProjectSettings.ToListAsync());
         }
 
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
+
         // GET: ProjectSettings/Details/5
         public async Task<IActionResult> Details(int? id)
         {

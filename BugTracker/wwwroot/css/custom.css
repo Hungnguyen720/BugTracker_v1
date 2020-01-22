@@ -1,0 +1,9 @@
+﻿.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+.top-nav 
+{
+    padding-left: 200px;
+}

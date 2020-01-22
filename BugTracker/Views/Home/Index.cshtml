@@ -1,278 +1,102 @@
 ﻿@{
     ViewData["Title"] = "Dashboard";
+    Layout = "";
 }
+<style>
+    body {
+        margin: 0px;
+    }
 
-<div class="row">
-    <div class="col-xl-8 mb-5 mb-xl-0">
-        <div class="card bg-gradient-default shadow">
-            <div class="card-header bg-transparent">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
-                        <h2 class="text-white mb-0">Sales value</h2>
-                    </div>
-                    <div class="col">
-                        <ul class="nav nav-pills justify-content-end">
-                            <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}' data-prefix="$" data-suffix="k">
-                                <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
-                                    <span class="d-none d-md-block">Month</span>
-                                    <span class="d-md-none">M</span>
-                                </a>
-                            </li>
-                            <li class="nav-item" data-toggle="chart" data-target="#chart-sales" data-update='{"data":{"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-prefix="$" data-suffix="k">
-                                <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
-                                    <span class="d-none d-md-block">Week</span>
-                                    <span class="d-md-none">W</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <!-- Chart -->
-                <div class="chart">
-                    <!-- Chart wrapper -->
-                    <canvas id="chart-sales" class="chart-canvas"></canvas>
-                </div>
-            </div>
+    .triangle {
+        fill: transparent;
+        stroke: #292825;
+        stroke-width: 8;
+    }
+
+    .floatShape {
+        animation: floatShape 75s;
+        position: absolute;
+        transition-timing-function: linear;
+    }
+
+
+
+
+    @@keyframes floatShape {
+        0% {
+            bottom: 0px;
+        }
+
+        100% {
+            bottom: 100vh;
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="/assets/img/brand/favicon.png" rel="icon" type="image/png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="/assets/vendor/nucleo/css/nucleo.min.css" rel="stylesheet">
+
+
+    <!-- Argon CSS -->
+    <link type="text/css" href="~/css/argon.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/custom.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+
+</head>
+<body>
+    <div style="position:absolute; bottom: 0px">
+        <svg height="100" width="100" class="floatShape">
+            <polygon points="31.75,7.5 12.5,50 50,50" class="triangle" />
+        </svg>
+        <svg height="100" width="100">
+            <circle class="circle" cx="35" cy="35" r="25" stroke="#292825" stroke-width="6" fill="transparent" />
+        </svg>
+        <svg width="100" height="100">
+            <rect x="40" y="40" width="50" height="50" stroke="#292825" fill="transparent" stroke-width="6" />
+        </svg>
+    </div>
+
+    <div class="background"
+         style="background-color: #353330;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-content: center;
+    ">
+
+
+        <div style="height: 400px; width: 600px; background-color: white; margin-right:auto; margin-left: auto; align-self: center;
+/*
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc; ">
+
+            <form action="/projectsettings">
+                <input class="btn btn-default" type="submit" value="Login" />
+            </form>
+
         </div>
     </div>
-    <div class="col-xl-4">
-        <div class="card shadow">
-            <div class="card-header bg-transparent">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6>
-                        <h2 class="mb-0">Total orders</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <!-- Chart -->
-                <div class="chart">
-                    <canvas id="chart-orders" class="chart-canvas"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row mt-5">
-    <div class="col-xl-8 mb-5 mb-xl-0">
-        <div class="card shadow">
-            <div class="card-header border-0">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h3 class="mb-0">Page visits</h3>
-                    </div>
-                    <div class="col text-right">
-                        <a href="#!" class="btn btn-sm btn-primary">See all</a>
-                    </div>
-                </div>
-            </div>
-            <div class="table-responsive">
-                <!-- Projects table -->
-                <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">Page name</th>
-                            <th scope="col">Visitors</th>
-                            <th scope="col">Unique users</th>
-                            <th scope="col">Bounce rate</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">
-                                /argon/
-                            </th>
-                            <td>
-                                4,569
-                            </td>
-                            <td>
-                                340
-                            </td>
-                            <td>
-                                <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                /argon/index.html
-                            </th>
-                            <td>
-                                3,985
-                            </td>
-                            <td>
-                                319
-                            </td>
-                            <td>
-                                <i class="fas fa-arrow-down text-warning mr-3"></i> 46,53%
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                /argon/charts.html
-                            </th>
-                            <td>
-                                3,513
-                            </td>
-                            <td>
-                                294
-                            </td>
-                            <td>
-                                <i class="fas fa-arrow-down text-warning mr-3"></i> 36,49%
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                /argon/tables.html
-                            </th>
-                            <td>
-                                2,050
-                            </td>
-                            <td>
-                                147
-                            </td>
-                            <td>
-                                <i class="fas fa-arrow-up text-success mr-3"></i> 50,87%
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                /argon/profile.html
-                            </th>
-                            <td>
-                                1,795
-                            </td>
-                            <td>
-                                190
-                            </td>
-                            <td>
-                                <i class="fas fa-arrow-down text-danger mr-3"></i> 46,53%
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-4">
-        <div class="card shadow">
-            <div class="card-header border-0">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h3 class="mb-0">Social traffic</h3>
-                    </div>
-                    <div class="col text-right">
-                        <a href="#!" class="btn btn-sm btn-primary">See all</a>
-                    </div>
-                </div>
-            </div>
-            <div class="table-responsive">
-                <!-- Projects table -->
-                <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">Referral</th>
-                            <th scope="col">Visitors</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">
-                                Facebook
-                            </th>
-                            <td>
-                                1,480
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span class="mr-2">60%</span>
-                                    <div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                Facebook
-                            </th>
-                            <td>
-                                5,480
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span class="mr-2">70%</span>
-                                    <div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                Google
-                            </th>
-                            <td>
-                                4,807
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span class="mr-2">80%</span>
-                                    <div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-gradient-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                Instagram
-                            </th>
-                            <td>
-                                3,678
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span class="mr-2">75%</span>
-                                    <div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                twitter
-                            </th>
-                            <td>
-                                2,645
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span class="mr-2">30%</span>
-                                    <div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-gradient-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
+</body>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
