@@ -1,18 +1,8 @@
-﻿@model IEnumerable<BugTracker.Models.ProjectDashboardViewModel>
+﻿@model BugTracker.Models.ProjectDashboardViewModel
 
 
 @{
     ViewData["Title"] = "Dashboard";
-}
-
-@foreach (var item in Model.Bugs)
-{
-<h1>@(item.ProjectId)</h1>
-}
-
-@foreach (var item in Model.Tasks)
-{
-<h1>@(item.ProjectId)</h1>
 }
 
 <div class="row">
@@ -81,12 +71,12 @@
                         </tr>
                         <tr>
                             <td>Hung</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>1</td>
+                            <td>@Model.TeamStatusTasksOverdue</td>
+                            <td>@Model.TeamStatusTasksTodays</td>
+                            <td>@Model.TeamStatusAllOpen</td>
+                            <td>@Model.TeamStatusBugsOverdue</td>
+                            <td>@Model.TeamStatusBugsTodays</td>
+                            <td>@Model.TeamStatusBugsAllOpen</td>
                         </tr>
                     </tbody>
                 </table>
@@ -137,36 +127,47 @@
 <script src="~/js/utils.js" asp-append-version="true"></script>
 
 <script>
-    var randomScalingFactor = function () {
-        return Math.round(Math.random() * 100);
-    };
-
-    var config = {
+    var configTaskStatus = {
         type: 'pie',
         data: {
             datasets: [{
                 data: [
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
+                    @Model.TaskOpen,
+                    @Model.TaskClosed
                 ],
                 backgroundColor: [
                     window.chartColors.red,
-                    window.chartColors.orange,
-                    window.chartColors.yellow,
-                    window.chartColors.green,
-                    window.chartColors.blue,
+                    window.chartColors.blue
                 ],
                 label: 'Dataset 1'
             }],
             labels: [
-                'Red',
-                'Orange',
-                'Yellow',
-                'Green',
-                'Blue'
+                'Task Open',
+                'Task Closed'
+            ]
+        },
+        options: {
+            responsive: true
+        }
+    };
+
+        var configBugStatus = {
+        type: 'pie',
+        data: {
+            datasets: [{
+                data: [
+                    @Model.BugOpen,
+                    @Model.BugClosed
+                ],
+                backgroundColor: [
+                    window.chartColors.green,
+                    window.chartColors.yellow
+                ],
+                label: 'Dataset 1'
+            }],
+            labels: [
+                'Bug Open',
+                'Bug Closed'
             ]
         },
         options: {
@@ -176,9 +177,10 @@
 
     window.onload = function () {
         var ctx = document.getElementById('chart-area1').getContext('2d');
-        window.myPie = new Chart(ctx, config);
+        window.myPie = new Chart(ctx, configTaskStatus);
 
         var ctx = document.getElementById('chart-area2').getContext('2d');
-        window.myPie = new Chart(ctx, config);
+        window.myPie = new Chart(ctx, configBugStatus);
+        
     };
 </script>

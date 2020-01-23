@@ -48,7 +48,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                <a href="/ProjectDashboard/@(item.ProjectId)">@Html.DisplayFor(modelItem => item.ProjectId)</a>
+                <a href="/ProjectDashboard?projectid=@(item.ProjectId)">@Html.DisplayFor(modelItem => item.ProjectId)</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ProjectName)

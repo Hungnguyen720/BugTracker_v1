@@ -26,20 +26,44 @@ namespace BugTracker.Controllers
         }
 
         [HttpGet()]
-        public async Task<IActionResult> Index(int projectid)
+        public  ActionResult Index(int projectid)
         {
+            int _BugOpen = _bcontext.Project_Bugs.Where(b => b.ProjectID == projectid).Where(b => b.Status == "Open").Count();
+            int _BugClosed = _bcontext.Project_Bugs.Where(b => b.ProjectID == projectid).Where(b => b.Status == "Closed").Count();
+            int _TaskOpen =  _tcontext.Task.Where(t => t.ProjectId == projectid).Where(t => t.Status == "Open").Count();
+            int _TaskClosed = _tcontext.Task.Where(t => t.ProjectId == projectid).Where(t => t.Status == "Closed").Count();
+            var result =  _tcontext.Task.Where(t => t.ProjectId == projectid).Where(t => t.DateEnd < DateTime.Now).GroupBy(t => t.AssignedTo).ToList();
 
+            /*
+            int _TeamStatusTasksOverdue = _tcontext.Task.Where(t => t.ProjectId == projectid).Where(t => t.DateEnd < DateTime.Now).Count();
+            int _TeamStatusBugsOverdue = _bcontext.Project_Bugs.Where(t => t.ProjectID == projectid).Where(t => t.DueDate < DateTime.Now).Count();
+            int _TeamStatusTasksTodays = _tcontext.Task.Where(t => t.ProjectId == projectid).Where(t => t.Status == "Open" ).Where(t => t.DateEnd == DateTime.Today).Count();
+            int _TeamStatusBugsTodays = _bcontext.Project_Bugs.Where(t => t.ProjectID == projectid).Where(t => t.Status == "Open").Where(t => t.DueDate == DateTime.Today).Count();
+            int _TeamStatusAllOpen = _tcontext.Task.Where(t => t.ProjectId == projectid).Where(t => t.Status == "Open").Count();
+            int _TeamStatusBugsAllOpen = _bcontext.Project_Bugs.Where(t => t.ProjectID == projectid).Where(t => t.Status == "Open").Count();
+            */
             var model = new ProjectDashboardViewModel()
             {
 
-                Tasks = await _tcontext.Task.ToListAsync(),
+                BugOpen = _BugOpen,
+                BugClosed = _BugClosed,
+                TaskOpen = _TaskOpen,
+                TaskClosed = _TaskClosed,
 
-                Bugs = await _bcontext.Project_Bugs.ToListAsync()
+                /*
+                TeamStatusTasksOverdue = _TeamStatusTasksOverdue,
+                TeamStatusBugsOverdue = _TeamStatusBugsOverdue,
+                TeamStatusTasksTodays = _TeamStatusTasksTodays,
+                TeamStatusBugsTodays = _TeamStatusBugsTodays,
+                TeamStatusAllOpen = _TeamStatusAllOpen,
+                TeamStatusBugsAllOpen = _TeamStatusBugsAllOpen,
+                */
+                //Tasks = await _tcontext.Task.ToListAsync(),
+               // Bugs = await _bcontext.Project_Bugs.ToListAsync()
 
             };
 
-            return View(model);
-
+            return model;
 
         } 
 
