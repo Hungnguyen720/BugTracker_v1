@@ -40,49 +40,37 @@ namespace BugTracker.Controllers
             var Tasks = _tcontext.Task.ToList();
             var Bugs = _bcontext.Project_Bugs.ToList();
 
-            var _TeamStatusAllOpen = _tcontext.Task.Where(b => b.Status == "Open").Where(b => b.ProjectId == projectid).GroupBy(a => new { a.AssignedTo })
-                .Select(c => new
+            var _TeamTaskStatus = _tcontext.Task.Where(a => a.ProjectId == projectid).GroupBy(a => a.AssignedTo )
+                .Select(c => new TeamTaskStatusModel
                 {
                     User = c.Key,
-                    openTasks = c.Count()
-                });
+                    Open = c.Count(x => x.Status == "Open"),
+                    Overdue = c.Count(x => x.DateEnd < DateTime.Now),
+                    Today = c.Count(x => x.DateEnd == DateTime.Today)
+                }).ToList();
 
-            var _TeamStatusAllClosed = _tcontext.Task.Where(b => b.Status == "Closed").Where(b => b.ProjectId == projectid).GroupBy(a => a.AssignedTo )
-                .Select(c => new
+            var _TeamBugStatus = _bcontext.Project_Bugs.Where(a => a.ProjectID == projectid).GroupBy(a => a.AssignedTo)
+                .Select(c => new TeamBugStatusModel
                 {
                     User = c.Key,
-                    closedTasks = c.Count()
-                });
+                    Open = c.Count(x => x.Status == "Open"),
+                    Overdue = c.Count(x => x.DueDate < DateTime.Now),
+                    Today = c.Count(x => x.DueDate == DateTime.Today)
+                }).ToList();
 
-
-
-            /*
-            int _TeamStatusBugsOverdue = _bcontext.Project_Bugs.Where(t => t.ProjectID == projectid).Where(t => t.DueDate < DateTime.Now).Count();
-            int _TeamStatusTasksTodays = _tcontext.Task.Where(t => t.ProjectId == projectid).Where(t => t.Status == "Open" ).Where(t => t.DateEnd == DateTime.Today).Count();
-            int _TeamStatusBugsTodays = _bcontext.Project_Bugs.Where(t => t.ProjectID == projectid).Where(t => t.Status == "Open").Where(t => t.DueDate == DateTime.Today).Count();
-            int _TeamStatusAllOpen = _tcontext.Task.Where(t => t.ProjectId == projectid).Where(t => t.Status == "Open").Count();
-            int _TeamStatusBugsAllOpen = _bcontext.Project_Bugs.Where(t => t.ProjectID == projectid).Where(t => t.Status == "Open").Count();
-            */
-            var model = new ProjectDashboardViewModel()
+            var model = new ProjectDashboardViewModel
             {
 
                 BugOpen = _BugOpen,
                 BugClosed = _BugClosed,
                 TaskOpen = _TaskOpen,
                 TaskClosed = _TaskClosed,
-
-                /*
-                TeamStatusTasksOverdue = _TeamStatusTasksOverdue,
-                TeamStatusBugsOverdue = _TeamStatusBugsOverdue,
-                TeamStatusTasksTodays = _TeamStatusTasksTodays,
-                TeamStatusBugsTodays = _TeamStatusBugsTodays,
-                TeamStatusAllOpen = _TeamStatusAllOpen,
-                TeamStatusBugsAllOpen = _TeamStatusBugsAllOpen,
-                */
+                TeamTasksStatus = _TeamTaskStatus,
+                TeamBugsStatus = _TeamBugStatus
 
             };
 
-            return Json(_TeamStatusAllClosed);
+            return View(model);
 
         } 
 

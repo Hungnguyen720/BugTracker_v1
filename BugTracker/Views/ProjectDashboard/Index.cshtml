@@ -5,6 +5,13 @@
     ViewData["Title"] = "Dashboard";
 }
 
+@foreach (var item in Model.TeamBugsStatus)
+{
+    <h1>@item</h1>
+    <h1>@item.User</h1>
+
+};
+
 <div class="row">
     <div class="col-xl-6 mb-5 mb-xl-0">
         <div class="card bg-neutral shadow">
@@ -69,15 +76,18 @@
                             <td>Today's</td>
                             <td>All Open</td>
                         </tr>
+                        @foreach (var item in Model.TeamTasksStatus)
+                        {
                         <tr>
-                            <td>Hung</td>
-                            <td>@Model.TeamStatusTasksOverdue</td>
-                            <td>@Model.TeamStatusTasksTodays</td>
-                            <td>@Model.TeamStatusAllOpen</td>
-                            <td>@Model.TeamStatusBugsOverdue</td>
-                            <td>@Model.TeamStatusBugsTodays</td>
-                            <td>@Model.TeamStatusBugsAllOpen</td>
+                            <td>@item.User</td>
+                            <td>@item.Overdue</td>
+                            <td>@item.Today</td>
+                            <td>@item.Open</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
+                        };
                     </tbody>
                 </table>
             </div>
@@ -181,6 +191,6 @@
 
         var ctx = document.getElementById('chart-area2').getContext('2d');
         window.myPie = new Chart(ctx, configBugStatus);
-        
+
     };
 </script>
