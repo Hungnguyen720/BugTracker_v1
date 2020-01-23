@@ -17,8 +17,9 @@ namespace BugTracker.Models
         public int TeamStatusBugsTodays { get; set;  }
         public int TeamStatusAllOpen { get; set; }
         public int TeamStatusBugsAllOpen { get; set; }
-        //public IEnumerable<Bugs> Bugs { get; set; }
-        //public IEnumerable<Task> Tasks { get; set; }
+        public IEnumerable<Bugs> Bugs { get; set; }
+        public IEnumerable<Task> Tasks { get; set; }
+
 
     }
 }
