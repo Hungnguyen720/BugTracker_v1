@@ -20,6 +20,8 @@ namespace BugTracker.Controllers
         }
 
         // GET: Bugs
+        [Route("/projectdashboard/bugs")]
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Project_Bugs.ToListAsync());

@@ -21,8 +21,9 @@ namespace BugTracker.Controllers
             _context = context;
         }
 
-        [Authorize]
         // GET: Tasks
+        [Route("/projectdashboard/tasks")]
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Task.ToListAsync());

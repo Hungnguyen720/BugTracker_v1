@@ -1,102 +1,22 @@
-﻿@{
-    ViewData["Title"] = "Dashboard";
-    Layout = "";
+﻿@page
+@model BugTracker.Views.Home.IndexModel
+@{
+        Layout = "~/Views/Shared/_layout_no_sidebar.cshtml";
+
 }
-<style>
-    body {
-        margin: 0px;
-    }
 
-    .triangle {
-        fill: transparent;
-        stroke: #292825;
-        stroke-width: 8;
-    }
-
-    .floatShape {
-        animation: floatShape 75s;
-        position: absolute;
-        transition-timing-function: linear;
-    }
-
-
-
-
-    @@keyframes floatShape {
-        0% {
-            bottom: 0px;
-        }
-
-        100% {
-            bottom: 100vh;
-            -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-        }
-    }
-</style>
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link href="/assets/img/brand/favicon.png" rel="icon" type="image/png">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-
-    <!-- Icons -->
-    <link href="/assets/vendor/nucleo/css/nucleo.min.css" rel="stylesheet">
-
-
-    <!-- Argon CSS -->
-    <link type="text/css" href="~/css/argon.css" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/custom.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-
-
-</head>
-<body>
-    <div style="position:absolute; bottom: 0px">
-        <svg height="100" width="100" class="floatShape">
-            <polygon points="31.75,7.5 12.5,50 50,50" class="triangle" />
-        </svg>
-        <svg height="100" width="100">
-            <circle class="circle" cx="35" cy="35" r="25" stroke="#292825" stroke-width="6" fill="transparent" />
-        </svg>
-        <svg width="100" height="100">
-            <rect x="40" y="40" width="50" height="50" stroke="#292825" fill="transparent" stroke-width="6" />
-        </svg>
-    </div>
-
-    <div class="background"
-         style="background-color: #353330;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-content: center;
-    ">
-
-
-        <div style="height: 400px; width: 600px; background-color: white; margin-right:auto; margin-left: auto; align-self: center;
-/*
-  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-  -moz-box-shadow:    3px 3px 5px 6px #ccc;
-  box-shadow:         3px 3px 5px 6px #ccc; ">
-
-            <form action="/projectsettings">
-                <input class="btn btn-default" type="submit" value="Login" />
-            </form>
-
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="jumbotron">
+                <h1 class="display-4">Hello, and welcome to my app!</h1>
+                <p class="lead">This is a bug tracker application built in C# and ASP.net.</p>
+                <hr class="my-4">
+                <p>HTTP Requests are disable for server protection, But data has been pre-loaded. Please go to projects to get started!</p>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="/projectsettings" role="button">See Projects</a>
+                </p>
+            </div>
         </div>
     </div>
-</body>
-
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-
+</div>

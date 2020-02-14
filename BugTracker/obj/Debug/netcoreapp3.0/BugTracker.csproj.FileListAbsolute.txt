@@ -124,8 +124,6 @@ C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\Razor\V
 C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\Bugs\Details.cshtml.g.cs
 C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\Bugs\Edit.cshtml.g.cs
 C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\Bugs\Index.cshtml.g.cs
-C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\ProjectSettings\Create.cshtml.g.cs
 C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\ProjectSettings\Delete.cshtml.g.cs
 C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\ProjectSettings\Details.cshtml.g.cs
@@ -324,3 +322,5 @@ C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\Razor\V
 C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\Shared\Components\Sidebar.cshtml.g.cs
 C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_Dropdown.cshtml.g.cs
 C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_layout_no_sidebar.cshtml.g.cs
+C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\ChartsReport\Index.cshtml.g.cs
+C:\Users\Hung\source\repos\BugTracker\BugTracker\obj\Debug\netcoreapp3.0\Razor\Views\Home\Index.cshtml.g.cs

@@ -13,7 +13,7 @@ namespace BugTracker.Views.Shared
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
-    public class Component : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class Component : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)

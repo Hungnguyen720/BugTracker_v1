@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BugTracker.Data;
 using BugTracker.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Task = BugTracker.Models.Task;
@@ -18,7 +19,7 @@ namespace BugTracker.Controllers
 
         public class test
         { 
-        public string User { get; set; }
+            public string User { get; set; }
             public int openTasks { get; set; }
         }
 
@@ -69,6 +70,10 @@ namespace BugTracker.Controllers
                 TeamBugsStatus = _TeamBugStatus
 
             };
+
+            int projectId = projectid; 
+
+            ViewBag.projectId = projectId;
 
             return View(model);
 
